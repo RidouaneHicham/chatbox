@@ -1,0 +1,22 @@
+<div *ngIf="messages.length > 0" class="mb-4">
+  <div *ngFor="let message of messages">
+    <div class="simpletitle m-2">
+      <mat-icon matPrefix class="icon-tbi mr-2" color="primary">account_circle</mat-icon>
+      Commentaire de {{message.user.prenom}} {{message.user.nom}} le {{message.createdAt | date: 'dd/MM/yyyy à hh:mm'}}:
+    </div>
+    <mat-chip-list>
+      <mat-chip style="width: 70%">
+        {{message.corps}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>
+<form [formGroup]="messageForm" *ngIf="messageForm" (ngSubmit)="ajouterMessage()">
+  <mat-form-field style="width: 70%">
+    <mat-label>Nouveau commentaire</mat-label>
+    <input matInput formControlName="message">
+  </mat-form-field>
+  <button [disabled]="messageForm.invalid" mat-icon-button matTooltip="Ajouter un commentaire">
+    <mat-icon class="icon-tbi" color="primary">send</mat-icon>
+  </button>
+</form>

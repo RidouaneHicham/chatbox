@@ -1,0 +1,7 @@
+.mat-standard-chip {
+  height: auto !important;
+}
+.mat-chip {
+  font-weight: unset !important;
+  font-style: italic;
+}
